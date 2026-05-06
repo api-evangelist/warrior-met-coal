@@ -8,123 +8,61 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Warrior Met Coal
 providerId: warrior-met-coal
-publisherName: Warrior Met Coal
-serviceCategory: API
+publisherName: Warrior Met Coal, Inc.
+serviceCategory: Mining / Metallurgical Coal
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Coal
   - Mining
-  - Steel
+  - Coal
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Warrior Met Coal API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: FinOps view of Warrior Met Coal at the corporate level. There
+  is no API consumption surface; commodity-supply costs flow through
+  bilateral metallurgical-coal supply contracts and are out-of-scope of
+  software FinOps.
+sources:
+  - https://www.warriormetcoal.com/
+notes: No API invoice surface. FOCUS attribution is not applicable to a
+  commodity supplier.
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Commodity Supply Contract
+  billingFrequency: Per-Invoice
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
-  ServiceName: Warrior Met Coal
-  ServiceCategory: Developer Tools / API
+  ServiceName: Warrior Met Coal Supply
+  ServiceCategory: Mining / Metallurgical Coal
   ProviderName: Warrior Met Coal
-  PublisherName: Warrior Met Coal
-  InvoiceIssuerName: Warrior Met Coal
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: Warrior Met Coal, Inc.
+  InvoiceIssuerName: Warrior Met Coal, Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: coal_tonnage
+    description: Metallurgical coal delivered under the bilateral supply
+      contract (out-of-scope for software FinOps; included to give the
+      FOCUS row a unit of measure).
+    unit: ton
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Warrior Met Coal API
-    baseURL: https://api.warriormetcoal.com
-    tags:
-      - Coal
-      - Mining
-      - Steel
-    serviceName: Warrior Met Coal API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - grade
+      - port
+principles:
+  - name: Visibility
+    description: Not applicable - commodity-supply settlement is observed
+      via the supply contract, not a software billing API.
+  - name: Allocation
+    description: Not applicable to software FinOps; coal-supply cost is
+      allocated by the buyer's metallurgical operations.
+  - name: Optimization
+    description: Not applicable to software FinOps.
+  - name: Accountability
+    description: Not applicable to software FinOps; supply contract is
+      owned by the buyer's procurement team.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+    url: https://apievangelist.com
