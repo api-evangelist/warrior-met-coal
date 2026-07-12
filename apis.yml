@@ -28,6 +28,8 @@ apis:
     description: >-
       The Warrior Met Coal API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: DomainSecurity
+    url: security/warrior-met-coal-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/warrior-met-coal-inc
   - type: Website
