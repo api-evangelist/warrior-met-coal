@@ -51,6 +51,12 @@ apis:
     description: >-
       The Warrior Met Coal API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: Plans
+    url: plans/warrior-met-coal-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/warrior-met-coal-rate-limits.yml
+  - type: FinOps
+    url: finops/warrior-met-coal-finops.yml
   - type: DomainSecurity
     url: security/warrior-met-coal-domain-security.yml
   - type: LinkedIn
